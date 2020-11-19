@@ -56,7 +56,7 @@ const App = () => {
       <Header />
       <div id="app">
         <p>
-          Searches every day between tomorrow and the end of the year for
+          Searches every day in the next two months for
           appointments to pick up cedula.
         </p>
         <strong>
