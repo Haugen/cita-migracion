@@ -12,3 +12,5 @@ export const BASE_URL_MDE =
   'https://agendamigracolbackend.emtelco.co/api/schedule/?nopaginate=true&city_id=tipi45&headquarters_id=tipi53&schedulecstm__level1=Cedula_Extranjeria&date=';
 
 export const DATES = generateDates();
+
+export const AUTH_TOKEN = '921912b8860c44608e212bd1cac9ceda18b9727b';

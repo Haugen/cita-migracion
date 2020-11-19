@@ -2,7 +2,7 @@ import { h } from 'preact';
 import { useState } from 'preact/hooks';
 import axios from 'axios';
 
-import { DATES, BASE_URL_MDE, BASE_URL_BOG } from '../utils/constants';
+import { DATES, BASE_URL_MDE, BASE_URL_BOG, AUTH_TOKEN } from '../utils/constants';
 import Header from './header';
 import ResultsList from './resultsList';
 import Loading from './loading';
@@ -19,7 +19,11 @@ const App = () => {
     const BASE_URL = city === 'Medellín' ? BASE_URL_MDE : BASE_URL_BOG;
 
     for (let date of DATES) {
-      const url = axios.get(`${BASE_URL}${date}`);
+      const url = axios.get(`${BASE_URL}${date}`, {
+        headers: {
+          'Authorization': 'Token ' + AUTH_TOKEN
+        }
+      });
       urls.push(url);
     }
 
