@@ -10,6 +10,9 @@ const getWeekDaysArray = (start, end) => {
 };
 
 export const generateDates = () => {
-  const daylist = getWeekDaysArray(new Date(), new Date('2020-12-31'));
+  const today = new Date();
+  const inTwoMonths = new Date();
+  inTwoMonths.setMonth(inTwoMonths.getMonth() + 2);
+  const daylist = getWeekDaysArray(today, inTwoMonths);
   return daylist.map((v) => v.toISOString().slice(0, 10));
 };
