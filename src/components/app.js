@@ -5,10 +5,12 @@ import axios from 'axios';
 import { DATES, BASE_URL_MDE, BASE_URL_BOG, AUTH_TOKEN } from '../utils/constants';
 import Header from './header';
 import ResultsList from './resultsList';
+import Error from './error';
 import Loading from './loading';
 
 const App = () => {
   const [results, setResults] = useState(null);
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [city, setCity] = useState('Bogotá');
 
@@ -38,8 +40,10 @@ const App = () => {
         setResults(data);
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+        setError(err.message);
       });
   };
 
@@ -69,6 +73,7 @@ const App = () => {
           Search dates in {city}
         </button>
         {loading ? <Loading /> : <ResultsList results={results} />}
+        {error && <Error error={error} /> }
       </div>
     </>
   );
