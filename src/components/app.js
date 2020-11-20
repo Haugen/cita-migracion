@@ -16,6 +16,7 @@ const App = () => {
 
   const searchDates = () => {
     setLoading(true);
+    setError(null);
     const data = [];
     const urls = [];
     const BASE_URL = city === 'Medellín' ? BASE_URL_MDE : BASE_URL_BOG;
